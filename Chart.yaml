@@ -1,0 +1,7 @@
+apiVersion: v2
+name: {{ .Values.gameServer.gameType }}
+version: "1"
+description: {{ .Values.gameServer.gameType }} dedicated game server
+keywords:
+- game
+- gameserver
