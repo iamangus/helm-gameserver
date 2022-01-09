@@ -1,5 +1,5 @@
 apiVersion: v2
-name: {{ .Values.gameServer.gameType }}
+name: "GenericGameServer"
 version: 1.0
 description: {{ .Values.gameServer.gameType }} dedicated game server
 keywords:
