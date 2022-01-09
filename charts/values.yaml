@@ -1,6 +1,6 @@
 #These charts are to deploy a range of gameserver containers created and supported by others.
 
-image: 
+image: imagename
 imageTag: latest
 
 # Configure resource requests and limits
