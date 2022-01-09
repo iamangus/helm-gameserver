@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.gameServer.gameType }}
+  labels:
+    app: {{ .Values.gameServer.gameType }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.gameServer.gameType }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.gameServer.gameType }}
+    spec:
+      containers:
+      - name: {{ .Values.gameServer.gameType }}
+        image: "{{ .Values.image }}:{{ .Values.imageTag }}"
+        imagePullPolicy: Always
+        resources:
+{{ toYaml .Values.resources | indent 10 }}
+
+        ports:
+        {{ if .Values.gameServer.ports.tcp }}
+        {{- range .Values.gameServer.ports.tcp }}
+        - name: {{ .Values.gameServer.gameType }}-tcp-{{ . }}
+          containerPort: {{ . }}
+          protocol: TCP
+        {{ if .Values.gameServer.ports.udp }}
+        {{- range .Values.gameServer.ports.udp }}
+        - name: {{ .Values.gameServer.gameType }}-udp-{{ . }}
+          containerPort: {{ . }}
+          protocol: UDP
+        volumeMounts:
+        - name: config
+          mountPath: {{ .Values.gameServer.volume }}
+      volumes:
+      - name: config
+        persistentVolumeClaim:
+{{- if eq .Values.persistence.claimName "" }}
+          claimName: {{ .Values.gameServer.gameType }}-config
+{{- else }}
+          claimName: {{ .Values.persistence.claimName }}
+{{- end }}
