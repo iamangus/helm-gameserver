@@ -24,14 +24,14 @@ spec:
         ports:
         {{ if .Values.gameServer.ports.tcp }}
         {{- range .Values.gameServer.ports.tcp }}
-        - name: {{ .Values.gameServer.gameType }}-tcp-{{ . }}
+        - name: {{ $.Values.gameServer.gameType }}-tcp-{{ . }}
           containerPort: {{ . }}
           protocol: TCP
         {{- end }}
         {{- end }}
         {{ if .Values.gameServer.ports.udp }}
         {{- range .Values.gameServer.ports.udp }}
-        - name: {{ .Values.gameServer.gameType }}-udp-{{ . }}
+        - name: {{ $.Values.gameServer.gameType }}-udp-{{ . }}
           containerPort: {{ . }}
           protocol: UDP
         {{- end }}

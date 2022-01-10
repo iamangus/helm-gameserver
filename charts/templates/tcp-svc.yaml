@@ -12,9 +12,9 @@ spec:
   ports:
   {{- if eq "LoadBalancer" .Values.gameServer.serviceType }}
   {{- range .Values.gameServer.ports.tcp }}
-  - name: {{ .Values.gameServer.gameType }}-tcp-{{ . }}
+  - name: {{ $.Values.gameServer.gameType }}-tcp-{{ . }}
     port: {{ . }}
-    targetPort: {{ .Values.gameServer.gameType }}-tcp-{{ . }}
+    targetPort: {{ $.Values.gameServer.gameType }}-tcp-{{ . }}
     protocol: TCP
   {{- end }}
   {{- end }}
