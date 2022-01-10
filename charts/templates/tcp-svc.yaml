@@ -1,4 +1,4 @@
-{{ if .Values.gameServer.ports.tcp }}
+{{ - if .Values.gameServer.ports.tcp }}
 apiVersion: v1
 kind: Service
 metadata:
