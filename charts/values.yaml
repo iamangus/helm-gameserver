@@ -17,6 +17,9 @@ gameServer:
   serviceType: LoadBalancer
   volume: # The file location in-pod that the persistant volume should be mounted to
 
+env: {}
+  #ADMIN_PASS: test
+
 #Configure world save persistance
 persistence:
   config:
