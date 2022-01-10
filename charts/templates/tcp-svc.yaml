@@ -17,6 +17,7 @@ spec:
     targetPort: {{ .Values.gameServer.gameType }}-tcp-{{ . }}
     protocol: TCP
   {{- end }}
+  {{- end }}
   selector:
     app: {{ .Values.gameServer.gameType }}
 {{- end }}

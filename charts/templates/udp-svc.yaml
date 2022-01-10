@@ -17,6 +17,7 @@ spec:
     targetPort: {{ .Values.gameServer.gameType }}-udp-{{ . }}
     protocol: UDP
   {{- end }}
+  {{- end }}
   selector:
     app: {{ .Values.gameServer.gameType }}
 {{- end }}
