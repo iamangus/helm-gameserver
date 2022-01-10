@@ -10,7 +10,7 @@ resources:
     cpu: 500m
 
 gameServer:
-  gameType: gameName
+  gameType: gamename #lowercase
   ports:
     tcp: []
     udp: []
