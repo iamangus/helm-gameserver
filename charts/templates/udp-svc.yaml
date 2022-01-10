@@ -1,5 +1,4 @@
 {{- if .Values.gameServer.ports.udp }}
-{{- $networkAppPort  := .Values.network.appPort -}}
 apiVersion: v1
 kind: Service
 metadata:
