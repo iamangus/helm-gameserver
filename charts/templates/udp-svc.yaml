@@ -12,9 +12,9 @@ spec:
   ports:
   {{- if eq "LoadBalancer" .Values.gameServer.serviceType }}
   {{- range .Values.gameServer.ports.udp }}
-  - name: {{ .Values.gameServer.gameType }}-udp-{{ . }}
+  - name: {{ $.Values.gameServer.gameType }}-udp-{{ . }}
     port: {{ . }}
-    targetPort: {{ .Values.gameServer.gameType }}-udp-{{ . }}
+    targetPort: {{ $.Values.gameServer.gameType }}-udp-{{ . }}
     protocol: UDP
   {{- end }}
   {{- end }}
