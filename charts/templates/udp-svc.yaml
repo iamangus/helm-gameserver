@@ -1,4 +1,4 @@
-{{ - if .Values.gameServer.ports.udp }}
+{{- if .Values.gameServer.ports.udp }}
 apiVersion: v1
 kind: Service
 metadata:
