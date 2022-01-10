@@ -14,7 +14,7 @@ spec:
   {{- range .Values.gameServer.ports.tcp }}
   - name: tcp-{{ randAlphaNum 5 | lower }}
     port: {{ . }}
-    targetPort: {{ $.Values.gameServer.gameType }}-tcp-{{ . }}
+    targetPort: tcp-{{ . }}
     protocol: TCP
   {{- end }}
   {{- end }}

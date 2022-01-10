@@ -14,7 +14,7 @@ spec:
   {{- range .Values.gameServer.ports.udp }}
   - name: udp-{{ randAlphaNum 5 | lower }}
     port: {{ . }}
-    targetPort: {{ $.Values.gameServer.gameType }}-udp-{{ . }}
+    targetPort: udp-{{ . }}
     protocol: UDP
   {{- end }}
   {{- end }}
