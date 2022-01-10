@@ -8,7 +8,7 @@ metadata:
   annotations:
     metallb.universe.tf/allow-shared-ip: {{ .Values.gameServer.gameType }}
 spec:
-  type: {{ .Values.gameServer.gameType }}
+  type: {{ .Values.gameServer.serviceType }}
   ports:
   {{- if eq "LoadBalancer" .Values.gameServer.serviceType }}
   {{- range .Values.gameServer.ports.tcp }}
