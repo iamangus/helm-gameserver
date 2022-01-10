@@ -19,3 +19,4 @@ spec:
   {{- end }}
   selector:
     app: {{ .Values.gameServer.gameType }}
+{{- end }}
