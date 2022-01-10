@@ -19,11 +19,11 @@ spec:
         image: "{{ .Values.image }}:{{ .Values.imageTag }}"
         imagePullPolicy: Always
         resources:
-        {{ toYaml .Values.resources | indent 10 }}
+{{ toYaml .Values.resources | indent 10 }}
 
         {{ if .Values.env }}
         env:
-        {{ toYaml .Values.env | indent 10 }}
+{{ toYaml .Values.env | indent 10 }}
         {{- end }}
 
         ports:
