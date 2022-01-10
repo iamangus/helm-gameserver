@@ -28,11 +28,13 @@ spec:
           containerPort: {{ . }}
           protocol: TCP
         {{- end }}
+        {{- end }}
         {{ if .Values.gameServer.ports.udp }}
         {{- range .Values.gameServer.ports.udp }}
         - name: {{ .Values.gameServer.gameType }}-udp-{{ . }}
           containerPort: {{ . }}
           protocol: UDP
+        {{- end }}
         {{- end }}
         volumeMounts:
         - name: config
