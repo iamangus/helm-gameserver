@@ -23,7 +23,10 @@ spec:
 
         {{ if .Values.env }}
         env:
-{{ toYaml .Values.env | indent 10 }}
+            {{- range .Values.env }
+            - name: {{ .name }}
+              value: {{ .value }}
+            {{- end }}
         {{- end }}
 
         ports:
