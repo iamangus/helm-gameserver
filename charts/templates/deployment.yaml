@@ -58,7 +58,9 @@ spec:
         persistentVolumeClaim:
 {{- if eq .Values.persistence.claimName "" }}
           claimName: {{ .Values.gameServer.gameType }}-data
+          storageClassName: {{ .Values.persistence.storageClassName }}
 {{- else }}
           claimName: {{ .Values.persistence.claimName }}
+          storageClassName: {{ .Values.persistence.storageClassName }}
 {{- end }}
 {{- end }}
