@@ -43,8 +43,8 @@ spec:
           protocol: UDP
         {{- end }}
         {{- end }}
-        {{ if .Values.persistence }}
         volumeMounts:
+        {{ if .Values.gameServer.volume }}
         - name: config
           mountPath: {{ .Values.gameServer.volume }}
         {{- end }}
