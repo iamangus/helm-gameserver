@@ -9,6 +9,10 @@ resources:
     memory: 512Mi
     cpu: 500m
 
+deploymentLabels:
+  gameName:
+  customerGuildID: 
+
 gameServer:
   gameType: "gamename" #lowercase
   ports:
