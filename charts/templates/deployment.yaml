@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: {{ .Values.gameServer.gameType }}
   labels:
+    gamename: "{{ .Values.deploymentLabels.gameName }}"
+    custguild: "{{ .Values.deploymentLabels.customerGuildID }}"
     app: {{ .Values.gameServer.gameType }}
 spec:
   replicas: 1
