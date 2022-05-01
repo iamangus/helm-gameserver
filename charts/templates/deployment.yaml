@@ -43,18 +43,22 @@ spec:
           protocol: UDP
         {{- end }}
         {{- end }}
+        {{ if .Values.persistence }}
         volumeMounts:
         - name: config
           mountPath: {{ .Values.gameServer.volume }}
+        {{- end }}
       #securityContext:
       #  runAsUser: 1000
       #  runAsGroup: 1000
       #  fsGroup: 1000
+{{ if .Values.persistence }}
       volumes:
       - name: config
         persistentVolumeClaim:
 {{- if eq .Values.persistence.claimName "" }}
-          claimName: {{ .Values.gameServer.gameType }}-config
+          claimName: {{ .Values.gameServer.gameType }}-data
 {{- else }}
           claimName: {{ .Values.persistence.claimName }}
+{{- end }}
 {{- end }}
