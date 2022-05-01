@@ -44,17 +44,17 @@ spec:
         {{- end }}
         {{- end }}
         volumeMounts:
-        {{ if .Values.gameServer.volume }}
-        - name: config
+{{ if .Values.gameServer.volume }}
+        - name: data
           mountPath: {{ .Values.gameServer.volume }}
-        {{- end }}
+{{- end }}
       #securityContext:
       #  runAsUser: 1000
       #  runAsGroup: 1000
       #  fsGroup: 1000
 {{ if .Values.persistence }}
       volumes:
-      - name: config
+      - name: data
         persistentVolumeClaim:
 {{- if eq .Values.persistence.claimName "" }}
           claimName: {{ .Values.gameServer.gameType }}-data
