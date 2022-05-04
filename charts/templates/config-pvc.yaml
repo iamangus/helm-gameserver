@@ -2,7 +2,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ .Values.gameServer.gameType }}-config
+  name: {{ .Values.gameServer.gameType }}-data
   labels:
     app: {{ .Values.gameServer.gameType }}
 spec:
