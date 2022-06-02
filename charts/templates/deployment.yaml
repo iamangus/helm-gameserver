@@ -16,6 +16,13 @@ spec:
       labels:
         app: {{ .Values.gameServer.gameType }}
     spec:
+      initContainers:
+      - name: volume-mount-hack-{{ .Values.gameServer.gameType }}
+        image: busybox
+        command: ["sh", "-c", "chown -R steam:steam /saves"]
+        volumeMounts:
+        - name: data
+          mountPath: {{ .Values.gameServer.volume }}
       containers:
       - name: {{ .Values.gameServer.gameType }}
         image: "{{ .Values.image }}:{{ .Values.imageTag }}"
