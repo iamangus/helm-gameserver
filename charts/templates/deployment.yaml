@@ -19,7 +19,7 @@ spec:
       initContainers:
       - name: volume-mount-hack-{{ .Values.gameServer.gameType }}
         image: busybox
-        command: ["sh", "-c", "useradd -p $(openssl passwd -1 password) steam && chown -R steam:root {{ .Values.gameServer.volume }}"]
+        command: ["sh", "-c", "chown -R 1000:1000 {{ .Values.gameServer.volume }}"]
         volumeMounts:
         - name: data
           mountPath: {{ .Values.gameServer.volume }}
