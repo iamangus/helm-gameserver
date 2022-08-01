@@ -48,10 +48,10 @@ spec:
         - name: data
           mountPath: {{ .Values.gameServer.volume }}
 {{- end }}
-      #securityContext:
-      #  runAsUser: 1000
-      #  runAsGroup: 1000
-      #  fsGroup: 1000
+      securityContext:
+        runAsUser: 65534
+        runAsGroup: 65534
+        fsGroup: 65534
 {{ if .Values.persistence }}
       volumes:
       - name: data
